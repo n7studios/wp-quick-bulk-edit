@@ -28,8 +28,8 @@ jQuery(document).ready(function($) {
 
 				// Populate Quick Edit Fields with data from the above hidden fields
 				// These are output in page_columns_output() in our plugin
-				$( 'input[name="custom_field_name"]', $(edit_row) ).val( name );
-				$( 'input[name="custom_field_email"]', $(edit_row) ).val( email );
+				$( 'input[name="_custom_field_name"]', $(edit_row) ).val( name );
+				$( 'input[name="_custom_field_email"]', $(edit_row) ).val( email );
 			}
 		};	
 
@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
 		// This stops them from being included in the GET URL, otherwise we'd have a really long search URL
 		// which breaks some nginx configurations
 		$('form#posts-filter').on('submit', function(e) {
-			$('input[name="custom_field_name"], input[name="custom_field_email"]').remove();
+			$( "input[name*='custom_field_name'], input[name*='custom_field_email']" ).remove();
 		});
 	}
 });
